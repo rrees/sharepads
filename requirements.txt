@@ -1,0 +1,5 @@
+Flask
+gunicorn
+redis
+WTForms
+psycopg[binary]

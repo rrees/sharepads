@@ -3,11 +3,10 @@ import logging
 
 import flask
 
-from . import handlers
 from . import redis_utils
 
-from .auth_password.routes import auth_routes
-
+from .handlers.routes import routes as app_routes
+from .handlers.forms.routes import routes as form_routes
 
 ENV = os.environ.get("ENV", "PROD")
 
@@ -19,11 +18,8 @@ app = flask.Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", os.urandom(24))
 
 
-routes = [
-    ("/", "index", handlers.pages.front_page, ["GET"]),
-]
+routes = app_routes + form_routes
 
-routes = routes # + auth_routes
 
 for path, endpoint, handler, methods in routes:
     app.add_url_rule(path, endpoint, handler, methods=methods)

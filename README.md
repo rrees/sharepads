@@ -1,6 +1,6 @@
-# Cloud Python Template
+# Sharepads
 
-A template project for getting a Flask application running quickly on Fly.
+Creates an online textpad that is public but whose details are obfuscated
 
 ## Environment file variables
 

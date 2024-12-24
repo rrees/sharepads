@@ -1,5 +1,5 @@
 from . import pages
 
 routes = [
-    pages.front_page,
+    ("/", "index", pages.front_page, ["GET"]),
 ]

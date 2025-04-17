@@ -1,0 +1,2 @@
+[tool.ruff.lint]
+indent-style = "tab"

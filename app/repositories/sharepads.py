@@ -21,3 +21,15 @@ def all():
             cursor.execute(sharepads_sql.all)
 
             return cursor.fetchall()
+
+
+def get_by_slug(slug: str):
+    params = {
+        "slug": slug,
+    }
+
+    with connect() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(sharepads_sql.get_by_slug, params)
+
+            return cursor.fetchone()
